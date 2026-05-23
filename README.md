@@ -1,34 +1,53 @@
 # Lu Khach Ban Co
 
-`Lu Khach Ban Co` is a fantasy multiplayer travel-planning board game prototype. Players sign in with Firebase Email/Password, draft travel cards, build a 5-day expedition itinerary, score the final board, and save finished trip history to Firestore.
+A fantasy multiplayer travel-planning board game where players draft destination cards, build tactical itineraries, manage resources, and turn the winning board into a real travel timeline.
 
-Live site:
+Live demo: [BinElvan3126.github.io/lu-khach-ban-co](https://BinElvan3126.github.io/lu-khach-ban-co/)
+
+## Overview
+
+`Lu Khach Ban Co` combines a tactical board game with a travel planning simulator. Players sign in, join a multiplayer match, draft cards, place destinations onto a 5-day expedition board, resolve simulation events, and save completed trip history to the cloud.
+
+Core flow:
 
 ```text
-https://BinElvan3126.github.io/lu-khach-ban-co/
+Login -> Hub -> Play -> Matching -> Game Board -> Simulation -> Result / Itinerary
 ```
 
-## Current Stack
+## Features
 
-- Vite + TypeScript
-- Firebase Authentication
-- Cloud Firestore for player profiles, history, and leaderboard data
-- Deno local multiplayer server
-- Vite PWA plugin
-- GitHub Pages deployment with `gh-pages`
+- Firebase Email/Password authentication
+- Cloud Firestore player profiles, leaderboard data, and match history
+- Multiplayer matchmaking prototype
+- Circular card-passing draft system
+- 5-day itinerary board with morning, afternoon, and evening slots
+- Xu, stamina, debt, and VP resource tracking
+- Simulation and scoring phase
+- Fantasy guild hall UI direction
+- PWA build support
+- GitHub Pages deployment
 
-## Project Layout
+## Tech Stack
+
+- Vite
+- TypeScript
+- Firebase
+- Cloud Firestore
+- Deno server for local multiplayer testing
+- Vite PWA
+- GitHub Pages
+
+## Project Structure
 
 ```text
-D:\CodexWorkspace
+.
 ├── index.html
 ├── src/
 │   ├── app.ts
-│   ├── client/multi.ts
-│   ├── data/cards_bundle.json
-│   ├── shared/cloud/firebase.ts
-│   ├── shared/game/
-│   └── styles/prototype.css
+│   ├── client/
+│   ├── data/
+│   ├── shared/
+│   └── styles/
 ├── server/
 ├── ARCHITECTURE.md
 ├── FIREBASE_SETUP.md
@@ -36,70 +55,60 @@ D:\CodexWorkspace
 └── vite.config.js
 ```
 
-The old `Web/` wrapper folder has been removed. Run all commands from `D:\CodexWorkspace`.
+## Getting Started
 
-## Run Locally
+Install dependencies:
 
-```powershell
-cd D:\CodexWorkspace
+```bash
 npm install
+```
+
+Start the frontend:
+
+```bash
 npm run dev
 ```
 
-Open:
+Start the local multiplayer server:
 
-```text
-http://127.0.0.1:5173/lu-khach-ban-co/
-```
-
-The Vite base path is `/lu-khach-ban-co/` to match GitHub Pages.
-
-## Firebase Setup
-
-The app does not use guest accounts. Players must register and sign in with Firebase Email/Password.
-
-Create a `.env` file from `.env.example`, add the Firebase web config, then restart the dev server.
-
-See `FIREBASE_SETUP.md` for:
-
-- Firebase Auth setup
-- Firestore rules
-- player profile documents
-- saved match history
-- leaderboard data
-
-## Multiplayer Server
-
-The local multiplayer server uses Deno.
-
-```powershell
-cd D:\CodexWorkspace
+```bash
 npm run server
 ```
 
-For local multiplayer testing, run the server once and open the app in 2-4 browser tabs.
+Open the local Vite URL shown in the terminal. For multiplayer testing, run the server once and open the app in multiple browser tabs.
 
-## Build And Deploy
+## Firebase Setup
 
-Build the app:
+This project requires Firebase Email/Password authentication. Guest accounts are not used.
 
-```powershell
-npm run build
-```
+Create a `.env` file from `.env.example` and add your Firebase web app config.
 
-Deploy to GitHub Pages:
+See [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) for Firestore rules and cloud data setup.
 
-```powershell
-npm run deploy
-```
+## Available Scripts
 
-GitHub Pages should be configured to publish from the `gh-pages` branch.
-
-## Checks
-
-```powershell
+```bash
+npm run dev
+npm run server
 npm run typecheck
 npm run lint
 npm run build
+npm run deploy
 ```
+
+## Deploy
+
+The app is configured for GitHub Pages with the base path:
+
+```text
+/lu-khach-ban-co/
+```
+
+Deploy with:
+
+```bash
+npm run deploy
+```
+
+GitHub Pages should publish from the `gh-pages` branch.
 
