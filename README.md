@@ -1,8 +1,23 @@
-﻿# Lu Khach Ban Co
+# Lu Khach Ban Co
 
-A fantasy multiplayer travel-planning board game prototype. Players sign in with Firebase Email/Password, draft travel cards, plan a 5-day itinerary board, score the trip, and save finished expedition history to Firestore.
+`Lu Khach Ban Co` is a fantasy multiplayer travel-planning board game prototype. Players sign in with Firebase Email/Password, draft travel cards, build a 5-day expedition itinerary, score the final board, and save finished trip history to Firestore.
 
-## Current Project Layout
+Live site:
+
+```text
+https://BinElvan3126.github.io/lu-khach-ban-co/
+```
+
+## Current Stack
+
+- Vite + TypeScript
+- Firebase Authentication
+- Cloud Firestore for player profiles, history, and leaderboard data
+- Deno local multiplayer server
+- Vite PWA plugin
+- GitHub Pages deployment with `gh-pages`
+
+## Project Layout
 
 ```text
 D:\CodexWorkspace
@@ -17,12 +32,13 @@ D:\CodexWorkspace
 ├── server/
 ├── ARCHITECTURE.md
 ├── FIREBASE_SETUP.md
-└── package.json
+├── package.json
+└── vite.config.js
 ```
 
-The old `Web/` wrapper folder has been removed from the project structure. Run commands from `D:\CodexWorkspace`.
+The old `Web/` wrapper folder has been removed. Run all commands from `D:\CodexWorkspace`.
 
-## Run Frontend
+## Run Locally
 
 ```powershell
 cd D:\CodexWorkspace
@@ -30,23 +46,54 @@ npm install
 npm run dev
 ```
 
-Open the Vite URL, usually `http://127.0.0.1:5173/peview-web/`.
+Open:
 
-## Firebase Login
+```text
+http://127.0.0.1:5173/lu-khach-ban-co/
+```
 
-The app requires Firebase Email/Password auth. Add Firebase keys to `.env` using the variables in `.env.example`, then restart the dev server.
+The Vite base path is `/lu-khach-ban-co/` to match GitHub Pages.
 
-See `FIREBASE_SETUP.md` for Auth, Firestore, and security rules.
+## Firebase Setup
+
+The app does not use guest accounts. Players must register and sign in with Firebase Email/Password.
+
+Create a `.env` file from `.env.example`, add the Firebase web config, then restart the dev server.
+
+See `FIREBASE_SETUP.md` for:
+
+- Firebase Auth setup
+- Firestore rules
+- player profile documents
+- saved match history
+- leaderboard data
 
 ## Multiplayer Server
 
 The local multiplayer server uses Deno.
 
 ```powershell
+cd D:\CodexWorkspace
 npm run server
 ```
 
-If `deno` is not recognized, install Deno first or test only the frontend UI flow.
+For local multiplayer testing, run the server once and open the app in 2-4 browser tabs.
+
+## Build And Deploy
+
+Build the app:
+
+```powershell
+npm run build
+```
+
+Deploy to GitHub Pages:
+
+```powershell
+npm run deploy
+```
+
+GitHub Pages should be configured to publish from the `gh-pages` branch.
 
 ## Checks
 
@@ -55,3 +102,4 @@ npm run typecheck
 npm run lint
 npm run build
 ```
+
