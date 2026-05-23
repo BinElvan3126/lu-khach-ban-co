@@ -112,3 +112,28 @@ npm run deploy
 
 GitHub Pages should publish from the `gh-pages` branch.
 
+## Render Server Deployment
+
+The multiplayer server can be deployed as a Render Web Service using Docker.
+
+Recommended Render settings:
+
+```text
+Language: Docker
+Branch: main
+Root Directory: leave blank
+Dockerfile Path: ./Dockerfile
+Instance Type: Free
+```
+
+After deploy, test the health endpoint:
+
+```text
+https://your-render-service.onrender.com/health
+```
+
+The multiplayer WebSocket endpoint will be:
+
+```text
+wss://your-render-service.onrender.com/ws
+```
