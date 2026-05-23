@@ -164,6 +164,13 @@ export class MultiplayerClient {
 }
 
 function websocketUrl() {
+  const configuredUrl = import.meta.env.VITE_MULTIPLAYER_WS_URL as string | undefined;
+  if (configuredUrl) return configuredUrl;
+
+  if (window.location.hostname.includes('github.io')) {
+    return 'wss://lu-khach-ban-co.onrender.com/ws';
+  }
+
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   return `${protocol}//${window.location.hostname}:8787/ws`;
 }
