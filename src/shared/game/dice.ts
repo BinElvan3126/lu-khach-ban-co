@@ -1,4 +1,4 @@
-import type { TravelCard } from './types';
+import type { TravelCard } from './types.ts';
 
 export type TravelEvent = {
   id: string;

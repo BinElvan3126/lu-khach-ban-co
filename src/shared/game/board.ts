@@ -1,4 +1,4 @@
-import type { BoardCell, GridPosition, TravelCard, ValidationResult } from './types';
+import type { BoardCell, GridPosition, TravelCard, ValidationResult } from './types.ts';
 
 export const DAYS = [1, 2, 3, 4, 5] as const;
 export const TIME_SLOTS = ['morning', 'afternoon', 'evening'] as const;

@@ -1,4 +1,4 @@
-import type { PlayerResources, PlayerState, TravelCard, ValidationResult } from './types';
+import type { PlayerResources, PlayerState, TravelCard, ValidationResult } from './types.ts';
 
 export const STARTING_RESOURCES: PlayerResources = {
   xu: 10,

@@ -1,5 +1,5 @@
-import { validateDistance } from './board';
-import type { BoardCell, ItineraryEntry, PlayerResources, TravelCard } from './types';
+import { validateDistance } from './board.ts';
+import type { BoardCell, ItineraryEntry, PlayerResources, TravelCard } from './types.ts';
 
 export type ScoreBreakdown = {
   baseVp: number;
